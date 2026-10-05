@@ -10,6 +10,8 @@ def validate_attendees(attendees):
         raise ValueError("Enter a whole number of attendees.")
     if attendees < 1:
         raise ValueError("At least one attendee is required.")
+    if attendees > 10:
+        raise ValueError("Maximum of 10 attendees allowed.")
 
 
 def create_booking(attendees):

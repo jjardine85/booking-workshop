@@ -1,3 +1,6 @@
+https://git-scm.com/cheat-sheet
+
+
 """Behaviour checks for the booking component."""
 import unittest
 from booking import create_booking, validate_attendees
@@ -17,6 +20,13 @@ class BookingTests(unittest.TestCase):
 
     def test_five_attendees_are_accepted(self):
         validate_attendees(5)
+
+    def test_ten_attendees_are_accepted(self):
+        validate_attendees(10)
+
+    def test_eleven_attendees_are_rejected(self):
+        with self.assertRaises(ValueError):
+            validate_attendees(11)
 
     def test_non_integer_input_is_rejected(self):
         for value in ("2", 1.5, True, None):
