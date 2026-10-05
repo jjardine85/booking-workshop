@@ -15,6 +15,10 @@ class BookingTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_attendees(-1)
 
+    def test_eleven_attendees_are_rejected(self):
+        with self.assertRaises(ValueError):
+            validate_attendees(11)
+
     def test_one_attendee_is_accepted(self):
         validate_attendees(1)
 
@@ -23,10 +27,6 @@ class BookingTests(unittest.TestCase):
 
     def test_ten_attendees_are_accepted(self):
         validate_attendees(10)
-
-    def test_eleven_attendees_are_rejected(self):
-        with self.assertRaises(ValueError):
-            validate_attendees(11)
 
     def test_non_integer_input_is_rejected(self):
         for value in ("2", 1.5, True, None):
